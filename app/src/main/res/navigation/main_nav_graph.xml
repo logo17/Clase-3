@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO 2: Creamos el archivo de navegacion y agregamos los fragmentos y sus acciones-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.loguito.clase3.views.fragments.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_create_account_nav_graph"
+            app:destination="@id/create_account_nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.loguito.clase3.views.fragments.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
+    <include app:graph="@navigation/create_account_nav_graph" />
+</navigation>
